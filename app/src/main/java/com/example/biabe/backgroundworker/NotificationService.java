@@ -12,7 +12,7 @@ import android.view.accessibility.AccessibilityEvent;
 public class NotificationService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        new HttpBackgroundWorker().execute("");
+        new HttpBackgroundWorker().execute("3");
         System.out.println("merge2");
     }
     @Override

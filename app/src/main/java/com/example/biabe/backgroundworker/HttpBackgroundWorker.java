@@ -12,11 +12,13 @@ import java.net.URLConnection;
  */
 
 public class HttpBackgroundWorker extends AsyncTask<String,Void,String> {
-    protected String doInBackground(String... url)
+    protected String doInBackground(String... urls)
     {
         try
         {
-            URL oracle = new URL("http://192.168.0.108/?cmd=7");
+            String url="http://192.168.0.108/?cmd=7";
+            System.out.println(url);
+            URL oracle = new URL(url);
 
             URLConnection yc = oracle.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(

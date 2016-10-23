@@ -1,6 +1,9 @@
 package com.example.biabe.backgroundworker;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.context = this;
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            System.out.println("Permission is not granted, requesting");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 123);
+        } else {
+            System.out.println("Permission is granted");
+        }
         /*Intent alarm = new Intent(this.context, AlarmReceiver.class);
         boolean alarmRunning = (PendingIntent.getBroadcast(this.context, 0, alarm, PendingIntent.FLAG_NO_CREATE) != null);
 
