@@ -16,7 +16,7 @@ public class HttpBackgroundWorker extends AsyncTask<String,Void,String> {
     {
         try
         {
-            String url="http://192.168.0.108/?cmd=7";
+            String url="http://192.168.0.108/?cmd=0";
             System.out.println(url);
             URL oracle = new URL(url);
 
